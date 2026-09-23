@@ -584,6 +584,7 @@ function resetPositions() {
         ghost.updateVelocity();
     }
 }
+// Thêm nút bấm cho mobile, haizzzzz con lẻm dùng AI copy paste còn mình thì ngồi sửa cho nó 😔🤘
 const keysArray = document.querySelectorAll(".k")
 for (let i = 0; i < keysArray.length; i++){
     keysArray[i].addEventListener("pointerdown", ()=>{
