@@ -586,7 +586,7 @@ function resetPositions() {
 }
 const keysArray = document.querySelectorAll(".k")
 for (let i = 0; i < keysArray.length; i++){
-    keysArray[i].addEventListener("click", ()=>{
+    keysArray[i].addEventListener("pointerdown", ()=>{
         let param={
             code: keys[keysArray[i].id],
         }
