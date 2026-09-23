@@ -1,0 +1,47 @@
+body {
+  background: linear-gradient(60deg, rgb(10, 11, 14), rgb(18, 22, 27));
+  font-family: Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 100vh;
+  flex-direction: column;
+}
+body::-webkit-scrollbar{
+  width: 0;
+}
+
+#board {
+  background-color: black;
+  border: 3px solid rgb(31, 37, 48);
+}
+
+.controlPanel{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  bottom: 20px;
+}
+.controlPanel .bottom{
+  display: flex;
+}
+.k{
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgba(49, 67, 94, 0.3);
+  border: solid 2px rgb(100, 170, 255);
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(100, 170, 255);
+}
+.ggIcon{
+  font-size: 22px !important;
+  user-select: none;
+  -moz-user-select: none;
+}
