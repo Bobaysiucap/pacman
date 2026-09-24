@@ -22,6 +22,8 @@ function initAudio() {
     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   }
 }
+// tạo hãm đã r ko gọi, máaaaa
+initAudio() // gọi hàm
 // Tạo tiếng ngắn
 function playTone(freq, duration, type = 'sine', endFreq = null) {
   if (!audioCtx) return;
@@ -39,6 +41,10 @@ function playTone(freq, duration, type = 'sine', endFreq = null) {
   osc.start(audioCtx.currentTime);
   osc.stop(audioCtx.currentTime + duration);
 }
+/*
+    "Ủa tạo func cho đã rồi sao không dùng v má?"
+    -bobaysiucap
+*/
 // Tiếng ăn đồ ăn
 function playEatSound() { playTone(440, 0.08, 'sine', 880); }
 // Tiếng va chạm cảnh sát
@@ -49,10 +55,6 @@ function playWinSound() {
   setTimeout(() => playTone(659, 0.15), 150);
   setTimeout(() => playTone(784, 0.25), 300);
 }
-// Tiếng thua
-function playLoseSound() { playTone(400, 0.15, 'triangle', 100); }
-
-
 // Hình ảnh Tường
 let wallImage;
 
@@ -303,6 +305,7 @@ function move() {
     let foodEaten = null;
     for (let food of foods) {
         if (collision(pacman, food)) {
+            playEatSound() // gọi hàm
             foodEaten = food;
             score += 10;
             break;
@@ -374,6 +377,7 @@ function move() {
         }
 
         if (collision(ghost, pacman)) {
+            playHitSound() //gọi hàm típ
             lives -= 1;
             if (lives === 0) {
                 gameOver = true;
@@ -393,7 +397,6 @@ function drawSafeImage(img, x, y, width, height, fallbackColor) {
         context.fillRect(x, y, width, height);
     }
 }
-
 function draw() {
     context.clearRect(0, 0, board.width, board.height);
 
@@ -584,10 +587,9 @@ function resetPositions() {
         ghost.updateVelocity();
     }
 }
-// Thêm nút bấm cho mobile, haizzzzz con lẻm dùng AI copy paste còn mình thì ngồi sửa cho nó 😔🤘
 const keysArray = document.querySelectorAll(".k")
 for (let i = 0; i < keysArray.length; i++){
-    keysArray[i].addEventListener("pointerdown", ()=>{
+    keysArray[i].addEventListener("click", ()=>{
         let param={
             code: keys[keysArray[i].id],
         }
